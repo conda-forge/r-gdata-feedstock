@@ -7,21 +7,23 @@ Package license: GPL-2
 
 Feedstock license: BSD 3-Clause
 
-Summary: Various R programming tools for data manipulation, including
+Summary: Various R programming tools for data manipulation, including: - medical unit conversions ('ConvertMedUnits', 'MedUnits'), - combining objects ('bindData', 'cbindX', 'combine', 'interleave'), - character vector operations ('centerText', 'startsWith', 'trim'), - factor manipulation ('levels', 'reorder.factor', 'mapLevels'), - obtaining information about R objects ('object.size', 'elem', 'env', 'humanReadable', 'is.what', 'll', 'keep', 'ls.funs', 'Args','nPairs', 'nobs'), - manipulating MS-Excel formatted files ('read.xls', 'installXLSXsupport', 'sheetCount', 'xlsFormats'), - generating fixed-width format files ('write.fwf'), - extricating components of date & time objects ('getYear', 'getMonth', 'getDay', 'getHour', 'getMin', 'getSec'), - operations on columns of data frames  ('matchcols', 'rename.vars'), - matrix operations ('unmatrix', 'upperTriangle', 'lowerTriangle'), - operations on vectors ('case', 'unknownToNA', 'duplicated2', 'trimSum'), - operations on data frames ('frameApply', 'wideByFactor'), - value of last evaluated expression ('ans'), and - wrapper for 'sample' that ensures consistent behavior for both scalar and vector arguments ('resample').
 
 
 
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-gdata-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-gdata-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-gdata-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-gdata-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-gdata-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-gdata-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-gdata-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-gdata-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-gdata-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-gdata-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-gdata-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-gdata-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-gdata/badges/version.svg)](https://anaconda.org/conda-forge/r-gdata)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-gdata/badges/downloads.svg)](https://anaconda.org/conda-forge/r-gdata)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--gdata-green.svg)](https://anaconda.org/conda-forge/r-gdata) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-gdata.svg)](https://anaconda.org/conda-forge/r-gdata) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-gdata.svg)](https://anaconda.org/conda-forge/r-gdata) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-gdata.svg)](https://anaconda.org/conda-forge/r-gdata) |
 
 Installing r-gdata
 ==================
@@ -56,13 +58,13 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](http://www.appveyor.com/)
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
 and [TravisCI](https://travis-ci.org/) it is possible to build and upload installable
 packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](http://docs.anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
-[conda-smithy](http://github.com/conda-forge/conda-smithy) has been developed.
+[conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
@@ -98,7 +100,7 @@ build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](http://conda.pydata.org/docs/building/meta-yaml.html#build-number-and-string).
+   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](http://conda.pydata.org/docs/building/meta-yaml.html#build-number-and-string)
+   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
    back to 0.
