@@ -1,5 +1,4 @@
-{% set version = "2.18.0" %}
-
+{% set version = '2.18.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +9,13 @@ package:
 source:
   fn: gdata_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/gdata_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/gdata/gdata_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/gdata_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/gdata/gdata_{{ version }}.tar.gz
   sha256: 4b287f59f5bbf5fcbf18db16477852faac4a605b10c5284c46b93fa6e9918d7f
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -23,25 +23,46 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-gtools
-
   run:
     - r-base
     - r-gtools
 
 test:
   commands:
-    - $R -e "library('gdata')"  # [not win]
+    - $R -e "library('gdata')"           # [not win]
     - "\"%R%\" -e \"library('gdata')\""  # [win]
 
 about:
   home: https://CRAN.R-project.org/package=gdata
   license: GPL-2
-  summary: 'Various R programming tools for data manipulation, including'
+  summary: 'Various R programming tools for data manipulation, including: - medical unit conversions
+    (''ConvertMedUnits'', ''MedUnits''), - combining objects (''bindData'', ''cbindX'',
+    ''combine'', ''interleave''), - character vector operations (''centerText'', ''startsWith'',
+    ''trim''), - factor manipulation (''levels'', ''reorder.factor'', ''mapLevels''),
+    - obtaining information about R objects (''object.size'', ''elem'', ''env'', ''humanReadable'',
+    ''is.what'', ''ll'', ''keep'', ''ls.funs'', ''Args'',''nPairs'', ''nobs''), - manipulating
+    MS-Excel formatted files (''read.xls'', ''installXLSXsupport'', ''sheetCount'',
+    ''xlsFormats''), - generating fixed-width format files (''write.fwf''), - extricating
+    components of date & time objects (''getYear'', ''getMonth'', ''getDay'', ''getHour'',
+    ''getMin'', ''getSec''), - operations on columns of data frames  (''matchcols'',
+    ''rename.vars''), - matrix operations (''unmatrix'', ''upperTriangle'', ''lowerTriangle''),
+    - operations on vectors (''case'', ''unknownToNA'', ''duplicated2'', ''trimSum''),
+    - operations on data frames (''frameApply'', ''wideByFactor''), - value of last
+    evaluated expression (''ans''), and - wrapper for ''sample'' that ensures consistent
+    behavior for both scalar and vector arguments (''resample'').'
   license_family: GPL2
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-2'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
