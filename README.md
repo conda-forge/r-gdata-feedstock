@@ -14,9 +14,8 @@ Summary: Various R programming tools for data manipulation, including: - medical
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-gdata-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-gdata-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/r-gdata-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-gdata-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-gdata-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-gdata-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/r-gdata-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/r-gdata-feedstock)
 
 Current release info
 ====================

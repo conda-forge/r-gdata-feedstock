@@ -14,9 +14,9 @@ source:
   sha256: 4b287f59f5bbf5fcbf18db16477852faac4a605b10c5284c46b93fa6e9918d7f
 
 build:
+  noarch: generic
   merge_build_host: True  # [win]
-  number: 1
-  skip: true  # [win32]
+  number: 1001
   rpaths:
     - lib/R/lib/
     - lib/
@@ -55,8 +55,7 @@ about:
     evaluated expression (''ans''), and - wrapper for ''sample'' that ensures consistent
     behavior for both scalar and vector arguments (''resample'').'
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-2'  # [win]
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
