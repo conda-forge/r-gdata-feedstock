@@ -55,7 +55,7 @@ about:
     behavior for both scalar and vector arguments (''resample'').'
   license_family: GPL2
   license_file:
-    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
