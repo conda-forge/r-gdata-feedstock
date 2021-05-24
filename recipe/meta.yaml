@@ -7,16 +7,15 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: gdata_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/gdata_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gdata/gdata_{{ version }}.tar.gz
   sha256: 4b287f59f5bbf5fcbf18db16477852faac4a605b10c5284c46b93fa6e9918d7f
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
   number: 1003
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -38,7 +37,7 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=gdata
-  license: GPL-2
+  license: GPL-2.0-only
   summary: 'Various R programming tools for data manipulation, including: - medical unit conversions
     (''ConvertMedUnits'', ''MedUnits''), - combining objects (''bindData'', ''cbindX'',
     ''combine'', ''interleave''), - character vector operations (''centerText'', ''startsWith'',
@@ -55,14 +54,9 @@ about:
     evaluated expression (''ans''), and - wrapper for ''sample'' that ensures consistent
     behavior for both scalar and vector arguments (''resample'').'
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
